@@ -64,3 +64,25 @@ Use the `all` argument to get a list of all the passwords.
 ```bash
 pw4 all
 ```
+
+# Bash Completion
+
+If you have bash completion installed, you can perform some magic here.
+
+First, create the completion file in the `/secure` folder using the following command:
+
+```bash
+pw4 all > ~/secure/pw-all.txt
+```
+
+You'll need to create a symlink to the completion script too:
+```bash
+sudo ln -s $PROJECT/pw4-completion.sh /usr/local/bash_completion.d/pw4-completion
+```
+
+Now you can tab-complete your PWs - which is awesome because that
+gives you a way of showing all the keys (the equivalent of using `pw4 all`)
+
+```bash
+pw4 na[tab]
+```

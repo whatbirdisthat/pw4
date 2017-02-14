@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-import getpass
-
-import StringIO
-import gnupg
-import os
 import ConfigParser
-import pyperclip
+import StringIO
+import getpass
+import os
 import sys
+
+import gnupg
+import pyperclip
 
 if __name__ == '__main__':
 
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     config.readfp(buf)
 
     if not config.has_section(pwName) or pwName == 'all':
-        print config.sections()
+        print ' '.join(config.sections())
         exit(0)
 
     if config.has_option(pwName, 'Account'):
