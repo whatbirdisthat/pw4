@@ -13,35 +13,54 @@ task of retrieving a password less clunky.
 ## How to install
 1. Clone the repo.
 
-        git clone https://github.com/whatbirdisthat/pw4.git
+```bash
+git clone https://github.com/whatbirdisthat/pw4.git
+```
 
 2. Use pip into install the prerequisites
     
-        sudo pip -H install python-gnupg
-        sudo pip -H install pyperclip
+```bash
+sudo pip -H install python-gnupg
+sudo pip -H install pyperclip
+```
 
 3. Put a symbolic link to pw4.py in your $HOME/bin folder (or /usr/bin)
 
-        ln -s $PROJECT/pw4.py $HOME/bin/pw4
+```bash
+ln -s $PROJECT/pw4.py $HOME/bin/pw4
+```
         
 4. Create a `.ini` file containing your passwords
         
-        vim pw.ini
+```bash
+vim pw.ini
+```
+        
+There's an [example-pw.ini](example-pw.ini) file to show the simplicity.
         
 5. GPG encrypt it
         
-        gpg -e -r 'your-id' pw.ini
+```bash
+gpg -e -r 'your-id' pw.ini
+```
 
 6. Move the encrypted .gpg file to ~/secure
 
-        mv pw.ini ~/secure
+```bash
+mv pw.ini.gpg ~/secure
+# make sure you can decrypt and view it before you delete it!
+rm pw.ini
+```
 
 7. Get your password:
 
-        pw4 nasa
+```bash
+pw4 nasa
+```
 
 ## When you forget where your password is
 Use the `all` argument to get a list of all the passwords.
 
-    pw4 all
-
+```bash
+pw4 all
+```
