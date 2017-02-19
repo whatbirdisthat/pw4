@@ -13,26 +13,26 @@ task of retrieving a password less clunky.
 ## How to install
 1. Clone the repo.
 
-```bash
+```commandline
 git clone https://github.com/whatbirdisthat/pw4.git
 ```
 
 2. Use pip into install the prerequisites
     
-```bash
-sudo pip -H install python-gnupg
-sudo pip -H install pyperclip
+```commandline
+sudo -H pip install python-gnupg
+sudo -H pip install pyperclip
 ```
 
 3. Put a symbolic link to pw4.py in your $HOME/bin folder (or /usr/bin)
 
-```bash
+```commandline
 ln -s $PROJECT/pw4.py $HOME/bin/pw4
 ```
         
 4. Create a `.ini` file containing your passwords
         
-```bash
+```commandline
 vim pw.ini
 ```
         
@@ -40,13 +40,13 @@ There's an [example-pw.ini](example-pw.ini) file to show the simplicity.
         
 5. GPG encrypt it
         
-```bash
+```commandline
 gpg -e -r 'your-id' pw.ini
 ```
 
 6. Move the encrypted .gpg file to ~/secure
 
-```bash
+```commandline
 mv pw.ini.gpg ~/secure
 # make sure you can decrypt and view it before you delete it!
 rm pw.ini
@@ -54,14 +54,14 @@ rm pw.ini
 
 7. Get your password:
 
-```bash
+```commandline
 pw4 nasa
 ```
 
 ## When you forget where your password is
 Use the `all` argument to get a list of all the passwords.
 
-```bash
+```commandline
 pw4 all
 ```
 
@@ -73,18 +73,39 @@ If you have bash completion installed, you can perform some magic here.
 
 First, create the completion file in the `/secure` folder using the following command:
 
-```bash
+```commandline
 pw4 all > ~/secure/pw-all.txt
 ```
 
 You'll need to create a symlink to the completion script too:
-```bash
+```commandline
 sudo ln -s $PROJECT/pw4-completion.sh /usr/local/bash_completion.d/pw4-completion
 ```
 
 Now you can tab-complete your PWs - which is awesome because that
 gives you a way of showing all the keys (the equivalent of using `pw4 all`)
 
-```bash
+```commandline
 pw4 na[tab]
 ```
+
+
+## A note on generating a secured .ini
+You will need to install GPG before any of this will work.
+ ```commandline
+ brew install gpg
+```
+You will also need to create a key (if you need one).
+```commandline
+gpg --full-gen-key
+```
+Answer the questions and your key is generated.
+
+I find it is helpful to use the "comment" field as a quick identifier
+for the key during encryption. That way you can use the "short name"
+of the comment field as the recipient when encrypting:
+```commandline
+gpg -er "comment" file.txt
+```
+
+
