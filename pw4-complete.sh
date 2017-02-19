@@ -14,7 +14,7 @@ _pw4_complete()
     prev_word="${COMP_WORDS[COMP_CWORD-1]}"
 
     # Ask pss to generate a list of types it supports
-    type_list=`cat ~/secure/pw-all.txt`
+    type_list=`cat ~/.gnupg/pw4-all.txt`
 
         # COMPREPLY is the array of possible completions, generated with
         # the compgen builtin.
