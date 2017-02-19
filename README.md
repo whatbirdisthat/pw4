@@ -17,7 +17,7 @@ task of retrieving a password less clunky.
 git clone https://github.com/whatbirdisthat/pw4.git
 ```
 
-2. Use pip into install the prerequisites
+2. Use pip to install the prerequisites
     
 ```bash
 sudo -H pip install python-gnupg
@@ -47,9 +47,9 @@ gpg -e -r 'your-id' pw4.ini
 6. Move the encrypted .gpg file to ~/secure
 
 ```bash
-mv pw4.ini.gpg ~/secure
+mv pw4.ini.gpg ~/.gnupg/
 # make sure you can decrypt and view it before you delete it!
-rm pw.ini
+rm pw4.ini
 ```
 
 7. Get your password:
