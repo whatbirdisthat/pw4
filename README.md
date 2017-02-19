@@ -119,5 +119,5 @@ If you have `help2man` installed you can create a man page for pw4.
 ```bash
 cd $PROJECT
 # assuming you haven't given yourself permission to write to the man folders
-sudo bash -c 'help2man ./pw4.py | gzip > /usr/share/man/man1/pw4.1.gz'
+sudo bash -c 'help2man -N ./pw4.py | gzip > /usr/share/man/man1/pw4.1.gz'
 ```
