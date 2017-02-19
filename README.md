@@ -65,6 +65,8 @@ Use the `all` argument to get a list of all the passwords.
 pw4 all
 ```
 
+Or, if you have _bash completion_ set up, type `pw4` and press `<TAB>`.
+
 # Bash Completion
 
 If you have bash completion installed, you can perform some magic here.
