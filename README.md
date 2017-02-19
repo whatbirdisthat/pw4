@@ -33,7 +33,7 @@ ln -s $PROJECT/pw4.py $HOME/bin/pw4
 4. Create a `.ini` file containing your passwords
         
 ```commandline
-vim pw.ini
+vim pw4.ini
 ```
         
 There's an [example-pw.ini](example-pw.ini) file to show the simplicity.
@@ -41,13 +41,13 @@ There's an [example-pw.ini](example-pw.ini) file to show the simplicity.
 5. GPG encrypt it
         
 ```commandline
-gpg -e -r 'your-id' pw.ini
+gpg -e -r 'your-id' pw4.ini
 ```
 
 6. Move the encrypted .gpg file to ~/secure
 
 ```commandline
-mv pw.ini.gpg ~/secure
+mv pw4.ini.gpg ~/secure
 # make sure you can decrypt and view it before you delete it!
 rm pw.ini
 ```
