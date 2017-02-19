@@ -23,7 +23,7 @@ class ConfigProvider:
             exit(1)
 
         for x, y in self.config.items(pw_name):
-            if not x == 'Password':
+            if x not in ('Password', 'password'):
                 print '{}: {}'.format(x, y)
 
         if self.config.has_option(pw_name, 'Password'):

@@ -74,7 +74,7 @@ If you have bash completion installed, you can perform some magic here.
 First, create the completion file in the `/secure` folder using the following command:
 
 ```bash
-pw4 --all > ~/secure/pw-all.txt
+pw4 --all > ~/.gnupg/pw4-all.txt
 ```
 
 You'll need to create a symlink to the completion script too:
@@ -82,7 +82,7 @@ You'll need to create a symlink to the completion script too:
 # mac
 sudo ln -s $PROJECT/pw4-completion.sh /usr/local/bash_completion.d/pw4-completion
 # linux
-sudo ln -s /home/user/PycharmProjects/pw4/pw4-complete.sh /etc/bash_completion.d/pw4-completion
+sudo ln -s $PROJECT/pw4-complete.sh /etc/bash_completion.d/pw4-completion
 ```
 
 Now you can tab-complete your PWs - which is awesome because that
@@ -112,4 +112,12 @@ for the key during encryption. That way you can use the "short name"
 of the comment field as the recipient when encrypting:
 ```bash
 gpg -er "comment" file.txt
+```
+
+### Bonus Extra points!
+If you have `help2man` installed you can create a man page for pw4.
+```bash
+cd $PROJECT
+# assuming you haven't given yourself permission to write to the man folders
+sudo bash -c 'help2man ./pw4.py | gzip > /usr/share/man/man1/pw4.1.gz'
 ```

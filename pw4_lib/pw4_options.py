@@ -9,4 +9,9 @@ class OptionsProvider:
             action='store_true', default=False,
             help="Print All Password Groups to stdout"
         )
+        self.parser.add_option(
+            '-v', '--version',
+            action='store_true', default=False,
+            help="Print version and exit"
+        )
         (self.options, self.args) = self.parser.parse_args()

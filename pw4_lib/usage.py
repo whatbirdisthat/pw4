@@ -9,8 +9,25 @@ very little.
 
 pw4 supports tab completion.
 """
-    provider = OptionsProvider()
-    provider.parser.print_help()
+    OptionsProvider().parser.print_help()
 
     print """
+Examples:
+        pw4 NASA                    print the account details for NASA and put the password on the clipboard
+        pw4 --all                   print all the account names
+        pw4 --all > names.txt       print all the account names to a file, such as the file that is read by
+                                    the pw4 bash completion script
+"""
+
+
+def print_version():
+    print """
+pw4 1.0
+
+Copyright 2016 What Bird Is That?
+Written by whatbirdisthat.github.io
+
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 """
