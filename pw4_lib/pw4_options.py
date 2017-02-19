@@ -3,11 +3,16 @@ from optparse import OptionParser
 
 class OptionsProvider:
     def __init__(self):
-        self.parser = OptionParser()
+        self.parser = OptionParser(add_help_option=False)
         self.parser.add_option(
             '-a', '--all',
             action='store_true', default=False,
             help="Print All Password Groups to stdout"
+        )
+        self.parser.add_option(
+            '-h', '--help',
+            action='store_true', default=False,
+            help="Print help text and exit"
         )
         self.parser.add_option(
             '-v', '--version',
