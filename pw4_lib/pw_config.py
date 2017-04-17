@@ -1,5 +1,6 @@
 import ConfigParser
 import StringIO
+import getpass
 
 import pyperclip
 
@@ -31,3 +32,18 @@ class ConfigProvider:
             pyperclip.copy(the_pw)
         else:
             print "No password found: nothing put on the clipboard"
+
+    def add_section(self):
+        section_name = raw_input("New account name: ")
+        self.config.add_section(section_name)
+        new_password = getpass.getpass(prompt="New password: ")
+        self.config.set(section_name, 'password', new_password)
+
+        while True:
+            option_name = raw_input("New key: ")
+            if option_name is "":
+                break
+            option_value = raw_input("New value: ")
+            self.config.set(section_name, option_name, option_value)
+
+        return section_name
