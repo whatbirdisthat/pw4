@@ -14,10 +14,14 @@ if __name__ == '__main__':
         print_usage()
         exit(0)
 
-    gpg_provider = GpgProvider()
+    gpg_provider = GpgProvider(options)
     config_provider = ConfigProvider(gpg_provider.plaintext)
 
     if options.all:
         config_provider.print_all_sections()
+    elif options.new:
+        section_name = config_provider.add_section()
+        gpg_provider.save_and_encrypt(config_provider.config)
+        config_provider.print_section(section_name)
     else:
         config_provider.print_section(gpg_provider.pwName)
